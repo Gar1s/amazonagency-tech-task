@@ -25,7 +25,7 @@ public class TrafficByDate implements Serializable {
     private BigDecimal orderItemSessionPercentage;
     private BigDecimal orderItemSessionPercentageB2B;
     private BigDecimal unitSessionPercentage;
-    private Integer unitSessionPercentageB2B;
+    private BigDecimal unitSessionPercentageB2B;
     private Integer averageOfferCount;
     private Integer averageParentItems;
     private Integer feedbackReceived;
