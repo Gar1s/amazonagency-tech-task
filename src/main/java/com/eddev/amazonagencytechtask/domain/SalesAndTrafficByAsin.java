@@ -1,10 +1,12 @@
 package com.eddev.amazonagencytechtask.domain;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Data
+@NoArgsConstructor
 public class SalesAndTrafficByAsin implements Serializable {
 
     private String parentAsin;
