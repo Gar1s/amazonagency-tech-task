@@ -13,4 +13,23 @@ public class SalesAndTrafficByDate implements Serializable {
     private SalesByDate salesByDate;
     private TrafficByDate trafficByDate;
 
+    public SalesAndTrafficByDate add(SalesAndTrafficByDate other){
+        if(this.salesByDate == null) {
+            this.salesByDate = other.salesByDate;
+        } else {
+            this.salesByDate.add(other.salesByDate);
+        }
+        if(this.trafficByDate == null){
+            this.trafficByDate = other.trafficByDate;
+        } else {
+            this.trafficByDate.add(other.trafficByDate);
+        }
+        return this;
+    }
+
+    public void sum(int divideBy){
+        this.salesByDate.sum(divideBy);
+        this.trafficByDate.sum(divideBy);
+    }
+
 }
