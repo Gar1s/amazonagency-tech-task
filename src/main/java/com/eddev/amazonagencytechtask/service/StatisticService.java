@@ -4,6 +4,7 @@ import com.eddev.amazonagencytechtask.domain.SalesAndTrafficByAsin;
 import com.eddev.amazonagencytechtask.domain.SalesAndTrafficByDate;
 import com.eddev.amazonagencytechtask.repository.StatisticRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -16,11 +17,13 @@ public class StatisticService {
 
     private final StatisticRepository statisticRepository;
 
+    @Cacheable(value = "findByDateCache")
     public SalesAndTrafficByDate findByDate(String date) {
         return statisticRepository.findStatisticBySalesAndTrafficByDate(date)
                 .orElseThrow();
     }
 
+    @Cacheable(value = "findByDatesCache")
     public List<SalesAndTrafficByDate> findByDates(String startDate, String endDate) {
         if(startDate == null && endDate == null){
             return statisticRepository.findAllSalesAndTrafficByDate()
@@ -35,11 +38,13 @@ public class StatisticService {
                 .orElseThrow();
     }
 
+    @Cacheable(value = "findByAsinsCache")
     public List<SalesAndTrafficByAsin> findByAsins(List<String> asins) {
         return statisticRepository.findStatisticBySalesAndTrafficByAsins(asins)
                 .orElseThrow();
     }
 
+    @Cacheable(value = "totalDateCache")
     public SalesAndTrafficByDate supUpAllByDate() {
         var list = statisticRepository.findAllSalesAndTrafficByDate()
                 .orElseThrow();
@@ -51,6 +56,7 @@ public class StatisticService {
         return result;
     }
 
+    @Cacheable(value = "totalAsinCache")
     public SalesAndTrafficByAsin supUpAllByAsin() {
         var list = statisticRepository.findAllSalesAndTrafficByAsin()
                 .orElseThrow();

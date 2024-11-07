@@ -1,12 +1,14 @@
 package com.eddev.amazonagencytechtask.domain;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 @Data
+@NoArgsConstructor
 public class TrafficByDate implements Serializable {
 
     private Integer browserPageViews;

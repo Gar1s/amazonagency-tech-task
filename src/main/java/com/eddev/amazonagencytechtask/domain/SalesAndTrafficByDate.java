@@ -1,11 +1,13 @@
 package com.eddev.amazonagencytechtask.domain;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 
 @Data
+@NoArgsConstructor
 public class SalesAndTrafficByDate implements Serializable {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
