@@ -1,5 +1,6 @@
 package com.eddev.amazonagencytechtask.domain;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,8 +24,12 @@ public class Statistic implements Serializable {
     @Id
     private String id;
     private ReportSpecification reportSpecification;
+
     @Field("salesAndTrafficByDate")
+    @SerializedName("salesAndTrafficByDate")
     private List<SalesAndTrafficByDate> salesAndTrafficByDates;
+
+    @SerializedName("salesAndTrafficByAsin")
     @Field("salesAndTrafficByAsin")
     private List<SalesAndTrafficByAsin> salesAndTrafficByAsins;
 
