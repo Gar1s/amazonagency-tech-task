@@ -1,4 +1,4 @@
-package com.eddev.amazonagencytechtask.utils;
+package com.eddev.amazonagencytechtask.schedule;
 
 import com.eddev.amazonagencytechtask.domain.Statistic;
 import com.eddev.amazonagencytechtask.repository.StatisticRepository;
@@ -25,7 +25,7 @@ public class DataScheduler {
     private final StatisticRepository statisticRepository;
     private final CacheManager cacheManager;
 
-    @Scheduled(cron = "* */5 * * * *")
+    @Scheduled(cron = "0 */5 * * * *")
     public void dataScheduler() {
         Statistic statistic;
         InputStream inputStream = null;
